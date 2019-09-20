@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link href="https://fonts.googleapis.com/css?family=Noto+Serif+TC&display=swap" rel="stylesheet">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="css/style.css">
+	<script src="js/vue.js"></script>
+
+	<title>City Guide</title>
+</head>
+<body>
+	<header id="header">
+		<div class="header-bar">
+			<div class="header-logo">
+				<a href="#">
+					<img src="image/header-logo.png" alt="header-logo.png">
+				</a>
+			</div>
+			<div class="menu">
+				<a href="#" class="menu-btn" @click="menuShow =!menuShow">
+					<span></span>
+					<span></span>
+					<span></span>
+				</a>		
+			</div>
+		</div>
+		<div class="menu-drap" :class="{menu_show:menuShow}">
+			<div class="menu-close">
+				<a href="#" @click="menuShow =!menuShow">
+					<span></span>
+					<span></span>
+				</a>
+			</div>
+			<div class="menu-bg">
+				<ul>
+					<li><a href="#">主頁</a></li>
+					<li><a href="#">目錄</a></li>
+					<li><a href="#">觀光好去處</a></li>
+					<li><a href="#">關於我們</a></li>					
+				</ul>
+			</div>
+		</div>
+		
+	</header>
+	<section id="home">
+		<div class="city-logo city-logo-1">
+			<img src="image/city-logo.png" alt="city-logo.png">
+		</div>
+		<div class="city-logo city-logo-2">
+			<img src="image/city-logo.png" alt="city-logo.png">
+		</div>
+		<div class="city-logo city-logo-3">
+			<img src="image/city-logo.png" alt="city-logo.png">
+		</div>
+		<div class="city-logo city-logo-4">
+			<img src="image/city-logo.png" alt="city-logo.png">
+		</div>
+		<div class="home-1 text">
+			<img src="image/home-1-text.png" alt="city-logo.png">
+		</div>
+		<div class="home-2 logo">
+			<input class="camera_hidden" type="file" accept="image/*" capture="camera" />
+			<img src="image/camera.png" alt="camera.png">
+		</div>
+		<div class="home-3">
+			<h1>城市指南</h1>
+			<h2>三盏灯区</h2>
+		</div>
+		<div class="down">
+			<div class="down-icon">
+				<div>
+					<span></span>
+					<span></span>
+				</div>
+			<div>
+					<span></span>
+					<span></span>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="data">
+
+		<div class="data-layout">
+			<ul>
+				<li v-for="shop in shops" class="box">
+					<div class="box-image">
+						<img :src="shop.photo_url" alt="photo_url">
+					</div>
+					<div class="box-text">
+						<div>{{shop.name}}</div>
+					</div>
+					<div class="box-direction">
+						<img src="image/location-logo.png" alt="location-logo.png">
+						<div class="box-direction-icon">
+							<span></span>
+							<span></span>
+						</div>
+					</div>
+					<div class="box-map">
+						<div class="map-frame">
+							<iframe width="100%" height="110px" :src="link+shop.latitude+','+shop.longitude" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+						</div>
+						<div class="map-info">
+							<img src="image/location-logo.png" alt="location-logo.png">
+							<p>{{shop.address}}</p>
+						</div>
+					</div>
+					<div class="box-camera">
+
+						<input class="camera_hidden2" type="file" accept="image/*" capture="camera">
+						<div class="camera-btn">
+							<img src="image/camera_icon.png" alt="icon.png" >
+							<p>留下你的足跡</p>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</section>
+</body>
+<footer>CopyRight &copy; 2019 by Ray wong</footer>
+</html>
+
+<script src="js/script.js"></script>
